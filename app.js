@@ -65,9 +65,7 @@ app.use((req,res,next)=>{
     res.locals.curruser=req.user;
     next();
 });
-app.get("/",(req,res)=>{
-    res.send("Welcome to home page");
-});
+
 /*app.get("/demouser",async(req,res)=>{
     let fkuser=new User({
         email:"Student@gmail.com",
