@@ -1,0 +1,73 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+.container{
+    flex:1;
+}
+.fa-compass{
+    color:red;
+    font-size: 2rem;
+}
+.nav-link{
+    color:black !important;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.f-info{
+    background-color:lightgrey;
+    height: 8rem;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.f-info-links a{
+    text-decoration: none;
+    color:black
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-links,.f-info-socials,.f-info-brand{
+    width:100%;
+}
+.f-info-socials i{
+    font-size:1.2rem;
+    margin-right: 1rem;
+}
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding:0 !important;
+}
+.card-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.3;
+    background-color:white;
+}
+.show-img{
+    height:100vh;
+}
+.btns{
+    display: flex;
+}
+.delete{
+    margin-left:2rem;
+}

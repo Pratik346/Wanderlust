@@ -1,0 +1,158 @@
+<%layout("/layouts/boilerplate")%>
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-evenly;
+        margin-bottom:2rem;
+    }
+    .filter{
+        margin-right:  1rem;
+        margin-top: 1rem;
+        text-align: center;
+        opacity:0.5;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    form button{
+        width:2rem;
+        border:none;
+    }
+    .classswitch{
+        margin-top:1rem;
+        margin-right:2rem;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .taxinfo{
+        display:none;
+    }
+    .switch{
+        border: 1px solid black;
+        border-radius :1rem;
+        height:3rem;
+        width:15rem;
+    }
+    /*.form-check-label{
+        margin-right:2rem;
+    }*/
+    /*.form-check-input{
+        margin-right:2rem;
+    }*/
+    
+</style>
+    <div id="filters" >
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Arctic" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-snowflake"></i>
+            </button>
+            <p>Arctic</p>
+            
+        </form>
+        <form  action="/listings" method="get">
+            <input type="hidden" name="category" value="Amazing Pools" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-person-swimming"></i>
+            </button>
+            <p>Amazing Pools</p>
+            
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Iconic Cities" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-city"></i>
+            </button>
+            <p>Iconic Cities</p>
+            
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Rooms" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-bed"></i>
+            </button>
+            <p>Rooms</p>
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Farms" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-tractor"></i>
+            </button>
+            <p>Farms</p>
+            
+        </form>
+        <form  action="/listings" method="get">
+            <input type="hidden" name="category" value="Beaches" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            </button>
+            <p>Beaches</p>
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Mountains" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-mountain"></i>
+            </button>
+            <p>Mountains</p>
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Camping" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-campground"></i>
+            </button>
+            <p>Camping</p>
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Royal Villa" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-crown"></i>
+            </button>
+            <p>Royal Villa</p>
+        </form>
+        <form action="/listings" method="get">
+            <input type="hidden" name="category" value="Trending" >
+            <button type="submit" class="filter">
+            <i class="fa-solid fa-fire"></i>
+            </button>
+            <p>Trending</p>
+        </form>
+        <div class="switch">
+            <div class="form-check-reverse form-switch classswitch">
+  <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+  <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+</div>
+    </div>
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <%for(let list of alllist){%>
+        <a href="/listings/<%=list._id%>" class="card-link">
+    <div class="card col listing-card" style="width: 18rem;">
+  <img src="<%=list.image.url%>" class="card-img-top" alt="Listing image" style="height:18rem">
+  <div class="card-img-overlay">WanderLust</div>
+  <div class="card-body">
+    <p class="card-text">
+        <b><%=list.title%><br></b>
+        &#8377;<%=list.price.toLocaleString("en-IN")%>/night
+        <i class="taxinfo"> +20% Taxes</i>
+    </p>
+  </div>
+   </div>
+</a>
+   <%}%>
+    </div>
+    <script>
+        let taxswitch=document.getElementById("switchCheckDefault");
+        taxswitch.addEventListener("click",()=>{
+            let taxes=document.getElementsByClassName("taxinfo");
+            for (tax of taxes){
+                if(tax.style.display!="inline"){
+                tax.style.display="inline";
+            }else{
+                tax.style.display="none";
+            }
+        }
+        }) 
+    </script>
+    
